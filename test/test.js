@@ -5,7 +5,7 @@ var grid2 = {"Damaged":false,"Missed":false,"X":1,"Y":1,"Probability":1};
 
 describe('firing', () => {
   describe('random shots stay within the map', () => {
-    
+
   });
   describe('fire will work on round 1', () => {
 
