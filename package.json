@@ -1,0 +1,11 @@
+{
+  "name": "first_bot_attempt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Chris Langsford",
+  "license": "ISC"
+}
