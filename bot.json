@@ -1,0 +1,9 @@
+{
+    "Author" : "Christopher Langsford",
+    "Email" : "langz020@gmail.com",
+    "NickName" : "Chris Bot",
+    "BotType": "JavaScript",
+    "ProjectLocation" : "",
+    "RunFile" : "bot.js",
+    "RunArgs" : ""
+}
