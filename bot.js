@@ -63,7 +63,7 @@ function fireOrDoNothing(workingDirectory) {
     // }
     //
     // var payload = fire + "," + xCoordinate + "," + yCoordinate + "\n";
-    var payload = fire(stateFile, acquireTarget(stateFile));
+    var payload = require('./fire.js')(stateFile, acquireTarget(stateFile));
     fs.writeFile(workingDirectory + '/' + commandFileName, payload, function(err) {
         if(err) {
             return console.log(err);
