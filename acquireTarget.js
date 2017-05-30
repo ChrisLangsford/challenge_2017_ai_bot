@@ -22,13 +22,9 @@ module.exports = function acquireTarget(state) {
         grid[i-dim].Probability += 1;
       }
     }
-
     if (grid[i].Missed) {
       grid[i].Probability = -1;
     }
   }
-  grid.sort(function(a, b) {
-    return parseFloat(a.Probability) - parseFloat(b.Probability);
-  });
   return grid;
 };

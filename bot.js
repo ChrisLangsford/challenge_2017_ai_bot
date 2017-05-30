@@ -47,7 +47,7 @@ function placeShips(workingDirectory) {
 
 function fireOrDoNothing(workingDirectory) {
     var stateFile = require(workingDirectory + '/' + stateFileName);
-    var target = require('./acquireTarget.js')(stateFile).reverse()[0];
+    var target =  require('./gridAssessor.js')(require('./acquireTarget.js')(stateFile));
     console.log(workingDirectory + '/' + stateFile);
     console.log("Round: "+stateFile.Round);
 
