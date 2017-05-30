@@ -1,11 +1,18 @@
 {
-  "name": "first_bot_attempt",
+  "name": "chris_bot",
   "version": "1.0.0",
   "description": "",
   "main": "bot.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "test": "mocha"
   },
   "author": "Chris Langsford",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^3.4.2",
+    "chai": "^4.0.0"
+  }
 }
