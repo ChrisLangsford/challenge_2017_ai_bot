@@ -31,10 +31,10 @@ function placeShips(workingDirectory) {
     // Hardcoded ship placement
     var payload =
       "Carrier 1 0 North" + "\n" +
-      "Battleship 2 0 North" + "\n" +
-      "Cruiser 4 0 North" + "\n" +
-      "Submarine 6 0 North" + "\n" +
-      "Destroyer 8 0 North" + "\n";
+      "Battleship 2 8 East" + "\n" +
+      "Cruiser 5 4 North" + "\n" +
+      "Submarine 7 1 North" + "\n" +
+      "Destroyer 9 9 South" + "\n";
 
     fs.writeFile(workingDirectory + '/' + placeShipFileName, payload,
     function(err) {
