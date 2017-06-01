@@ -51,7 +51,8 @@ function fireOrDoNothing(workingDirectory) {
     console.log(workingDirectory + '/' + stateFile);
     console.log("Round: "+stateFile.Round);
 
-    var payload = require('./fire.js')(stateFile, target);
+    var shot = require('./fire.js')(stateFile, target);
+    var payload = "1" + "," + shot.X + "," + shot.Y + "\n";
     fs.writeFile(workingDirectory + '/' + commandFileName, payload, function(err) {
         if(err) {
             return console.log(err);
