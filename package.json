@@ -12,7 +12,8 @@
   "author": "Chris Langsford",
   "license": "ISC",
   "dependencies": {
-    "mocha": "^3.4.2",
-    "chai": "^4.0.0"
+    "chai": "^4.0.0",
+    "fixed-2d-array": "^2.0.0",
+    "mocha": "^3.4.2"
   }
 }

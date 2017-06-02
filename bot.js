@@ -46,13 +46,13 @@ function placeShips(workingDirectory) {
 }
 
 function fireOrDoNothing(workingDirectory) {
-    var stateFile = require(workingDirectory + '/' + stateFileName);
-    var target =  require('./targetSelector.js')(require('./acquireTarget.js')(stateFile));
-    console.log(workingDirectory + '/' + stateFile);
-    console.log("Round: "+stateFile.Round);
+    // Random fires
+    var fire = 1;
+    var xCoordinate = Math.floor(Math.random() * 10);
+    var yCoordinate = Math.floor(Math.random() * 10);
 
-    var shot = require('./fire.js')(stateFile, target);
-    var payload = "1" + "," + shot.X + "," + shot.Y + "\n";
+    var payload = fire + "," + xCoordinate + "," + yCoordinate + "\n";
+
     fs.writeFile(workingDirectory + '/' + commandFileName, payload, function(err) {
         if(err) {
             return console.log(err);
