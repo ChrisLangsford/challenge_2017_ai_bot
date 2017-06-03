@@ -46,7 +46,7 @@ function placeShips(workingDirectory) {
 }
 
 function fireOrDoNothing(workingDirectory) {
-    // Random fires
+    var stateFile = require(workingDirectory + '/' + stateFileName);
     var fire = 1;
     var target = require('./selectFiringMethod.js')(stateFile);
 
