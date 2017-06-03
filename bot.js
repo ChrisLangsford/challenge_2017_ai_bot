@@ -48,10 +48,10 @@ function placeShips(workingDirectory) {
 function fireOrDoNothing(workingDirectory) {
     // Random fires
     var fire = 1;
-    var target = require('./selectFiringMethod.js')(stateFile);    
+    var target = require('./selectFiringMethod.js')(stateFile);
 
-    var xCoordinate =
-    var yCoordinate =
+    var xCoordinate = target.X;
+    var yCoordinate = target.Y;
 
     var payload = fire + "," + xCoordinate + "," + yCoordinate + "\n";
 
