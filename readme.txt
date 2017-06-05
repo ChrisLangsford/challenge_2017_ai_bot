@@ -1,1 +1,2 @@
-Javascript bot which runs in game engine without any specific build steps required.
+1. npm install.
+2. ready to rumble.
