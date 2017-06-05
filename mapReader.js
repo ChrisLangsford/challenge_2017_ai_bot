@@ -1,5 +1,6 @@
 module.exports = function mapReader(stateFile) {
   var grid_array = require('fixed-2d-array');
+  var dim = stateFile.MapDimension;
   var cell_template = {
         "X": 0,
         "Y": 0,
@@ -8,7 +9,7 @@ module.exports = function mapReader(stateFile) {
         "Probability": 0
   };
 
-  var battleMap = new grid_array(10,10,cell_template);
+  var battleMap = new grid_array(dim,dim,cell_template);
 
   for (var i = 0; i < stateFile.OpponentMap.Cells.length; i++) {
     battleMap.set(

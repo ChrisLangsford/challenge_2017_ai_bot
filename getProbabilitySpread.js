@@ -7,8 +7,6 @@ battleMap.forEach((e=>{grid.push(e)}));
 var cell = {};
   for (var i = 0; i < grid.length; i++) {
 
-
-
     if (grid[i].Damaged) {
         grid[i].Probability = -1;
       if (grid[i+1] && !(grid[i+1].Damaged || grid[i+1].Missed)) {
