@@ -34,7 +34,7 @@ var cell = {};
     //   console.log("-dim: "+ JSON.stringify(grid[i-dim]));
     // }
   }
-console.log(grid);
+//console.log(grid);
 
 return grid;
 };
