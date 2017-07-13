@@ -2,6 +2,7 @@ var fs = require('fs');
 
 var commandFileName = "command.txt";
 var placeShipFileName = "place.txt";
+var heatmapFileName = "heatmap.txt";
 var stateFileName = "state.json";
 
 // This will be set in initBot function
@@ -49,11 +50,19 @@ function fireOrDoNothing(workingDirectory) {
     var stateFile = require(workingDirectory + '/' + stateFileName);
     var fire = 1;
     var target = require('./selectFiringMethod.js')(stateFile);
+    var printHeatMap = require('./heatMapPrinter.js');
 
     var xCoordinate = target.X;
     var yCoordinate = target.Y;
 
     var payload = fire + "," + xCoordinate + "," + yCoordinate + "\n";
+
+    fs.writeFile(workingDirectory + '/'+ heatmapFileName, printHeatMap(stateFile), function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        console.log("heatmap written");
+    });
 
     fs.writeFile(workingDirectory + '/' + commandFileName, payload, function(err) {
         if(err) {

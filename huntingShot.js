@@ -3,7 +3,8 @@ module.exports = function huntingShot(dim) {
     "X": 0,
     "Y": 0
   };
-
+// TODO: after round 5 use heatmap to generate battlemap & sort by Probability
+// make sure to reselect cell based on parity rules
   do {
     targetCell.X = Math.floor(Math.random() * dim);
     targetCell.Y = Math.floor(Math.random() * dim);

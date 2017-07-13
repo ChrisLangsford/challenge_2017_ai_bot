@@ -67,6 +67,8 @@ module.exports = function potentialShipFinder(state) {
           }
         });
         });
-// TODO: Return battleMap and sort by Probability for hunting shot. Apply parity rule to resulting shot
-    return returnVal;
+
+
+
+    return returnVal = battleMap;
 }
