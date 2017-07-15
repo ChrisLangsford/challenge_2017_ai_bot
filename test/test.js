@@ -31,3 +31,17 @@ describe('huntingShot', () => {
     });
   });
 });
+
+var destroyedShipState = require('./test_states/destroyed_ships_state.json');
+var energyLevelState = require('./test_states/energy_level_state.json');
+var getAttacks = require('../findAvailableAttacks.js');
+describe('Powers', function () {
+  describe('', function () {
+    it('should only return powers for surviving ships', function () {
+      assert.equal(getAttacks(destroyedShipState).length, 3);
+    });
+    it('should only return powers requiring <= energy available', function () {
+      assert.equal(getAttacks(energyLevelState).length, 1);
+    });
+  });
+});
