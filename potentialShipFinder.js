@@ -1,35 +1,12 @@
 module.exports = function potentialShipFinder(state) {
     var battleMap = require('./mapReader.js')(state);
+    var getRowShapes = require('./heatmap/identifyRowShapes.js');
+    var getColumnShapes = require('./heatmap/identifyColumnShapes.js');
     var potentialShips = [];
     var returnVal;
 
-        for (var j = 0; j < state.MapDimension; j++) {
-            var shape = [];
-            var row = battleMap.getRow(j);
-            for (var i = 0; i < row.length; i++) {
-                if (row[i].Missed || row[i].Damaged) {
-                    potentialShips.push(shape);
-                    i++;
-                } else {
-                    shape.push(row[i]);
-                }
-              };
-              potentialShips.push(shape);
-        }
-
-        for (var j = 0; j < state.MapDimension; j++) {
-            var shape = [];
-            var row = battleMap.getColumn(j);
-            for (var i = 0; i < row.length; i++) {
-                if (row[i].Missed || row[i].Damaged) {
-                    potentialShips.push(shape);
-                    i++;
-                } else {
-                    shape.push(row[i]);
-                }
-              };
-              potentialShips.push(shape);
-        }
+    potentialShips = getRowShapes(battleMap, state)
+                    .concat(getColumnShapes(battleMap, state));
 
         var unique = potentialShips.filter(function(elem, index, self) {
             return index == self.indexOf(elem);
