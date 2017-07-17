@@ -57,9 +57,9 @@ describe('powers module', function () {
     it('should have a name', function () {
       expect(powersModule).to.have.property('name');
     });
-    it('should build a battleMap object', function () {
-      expect(powersModule).to.have.property('battleMap');
-    });
+    // it('should build a battleMap object', function () {
+    //   expect(powersModule).to.have.property('battleMap');
+    // });
     it('should use the state file to determine possible attack options', function () {
       expect(powersModule).to.have.property('availableAttacks')
     });
@@ -74,6 +74,14 @@ describe('powers module', function () {
     });
     it('should have a list of potential double shots', function () {
       expect(powersModule).to.have.property('doubleShotCells');
+    });
+  });
+  describe('The cross shot should potential cross shot target cells', function () {
+    it('should return 64 protential targets for a blank 10x10 map', function () {
+      assert.equal(64, powersModule.crossShotCells.length);
+    });
+    it('should return 64 protential targets for a blank 10x10 map', function () {
+      assert.equal(64, powersModule.diagonalCrossShotCells.length);
     });
   });
 
