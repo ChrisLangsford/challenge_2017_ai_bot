@@ -20,8 +20,7 @@ module.exports = function crossShotCellsMaker(state) {
             }
           }
       }
-    }
-  );
+    });
 
   return diagonalCrossShotCells;
 }

@@ -46,42 +46,47 @@ describe('Powers', function () {
   });
 });
 
-var powersModule = require('../powers_module/powers_module.js')(blankState);
+var powersModule = require('../powers_module/powers_module.js');
 describe('powers module', function () {
   describe('the module', function () {
     it('should call a factory that returns the module as an object', function () {
-      assert.typeOf(powersModule, 'Object');
+      assert.typeOf(powersModule(blankState), 'Object');
     });
   });
   describe('the module should have the following attributes', function () {
     it('should have a name', function () {
-      expect(powersModule).to.have.property('name');
+      expect(powersModule(blankState)).to.have.property('name');
     });
     // it('should build a battleMap object', function () {
-    //   expect(powersModule).to.have.property('battleMap');
+    //   expect(powersModule(blankState)).to.have.property('battleMap');
     // });
     it('should use the state file to determine possible attack options', function () {
-      expect(powersModule).to.have.property('availableAttacks')
+      expect(powersModule(blankState)).to.have.property('availableAttacks')
     });
     it('should have a list of potential cross shots', function () {
-      expect(powersModule).to.have.property('crossShotCells');
+      expect(powersModule(blankState)).to.have.property('crossShotCells');
     });
     it('should have a list of potential diagonal cross shots', function () {
-      expect(powersModule).to.have.property('diagonalCrossShotCells');
+      expect(powersModule(blankState)).to.have.property('diagonalCrossShotCells');
     });
     it('should have a list of potential corner shots', function () {
-      expect(powersModule).to.have.property('cornerShotCells');
+      expect(powersModule(blankState)).to.have.property('cornerShotCells');
     });
     it('should have a list of potential double shots', function () {
-      expect(powersModule).to.have.property('doubleShotCells');
+      expect(powersModule(blankState)).to.have.property('doubleShotCells');
     });
   });
   describe('The cross shot should potential cross shot target cells', function () {
     it('should return 64 protential targets for a blank 10x10 map', function () {
-      assert.equal(64, powersModule.crossShotCells.length);
+      assert.equal(64, powersModule(blankState).crossShotCells.length);
     });
     it('should return 64 protential targets for a blank 10x10 map', function () {
-      assert.equal(64, powersModule.diagonalCrossShotCells.length);
+      assert.equal(64, powersModule(blankState).diagonalCrossShotCells.length);
+    });
+  });
+  describe('The corner shot should be identical except the centre cell is touched', function () {
+    it('should return no options for a blank state', function () {
+      assert.equal(0, powersModule(blankState).cornerShotCells.length);
     });
   });
 
