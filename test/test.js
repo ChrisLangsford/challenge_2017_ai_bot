@@ -34,7 +34,7 @@ describe('huntingShot', () => {
 
 var destroyedShipState = require('./test_states/destroyed_ships_state.json');
 var energyLevelState = require('./test_states/energy_level_state.json');
-var getAttacks = require('../findAvailableAttacks.js');
+var getAttacks = require('../powers_module/findAvailableAttacks.js');
 describe('Powers', function () {
   describe('', function () {
     it('should only return powers for surviving ships', function () {
@@ -44,4 +44,19 @@ describe('Powers', function () {
       assert.equal(getAttacks(energyLevelState).length, 1);
     });
   });
+});
+
+var powersModule = require('../powers_module/powers_module.js')();
+describe('powers module', function () {
+  describe('the module', function () {
+    it('should call a factory that returns the module as an object', function () {
+      assert.typeOf(powersModule, 'Object');
+    });
+  });
+  describe('the module should have several attributes', function () {
+    it('should have a name', function () {
+      expect(powersModule).to.have.property('name');
+    });
+  });
+
 });
