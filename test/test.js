@@ -5,7 +5,7 @@ var chai = require('chai'),
     not = chai.not,
     have = chai.have;
 
-var blankState = require('../state_files/eg_state1.json');
+var blankState = require('./test_states/blank_state.json');
 var battleMap = require('../mapReader.js')(blankState);
 var selectFiringMethod = require('../selectFiringMethod.js');
 var huntingShot = require('../huntingShot.js')(10);
@@ -46,16 +46,34 @@ describe('Powers', function () {
   });
 });
 
-var powersModule = require('../powers_module/powers_module.js')();
+var powersModule = require('../powers_module/powers_module.js')(blankState);
 describe('powers module', function () {
   describe('the module', function () {
     it('should call a factory that returns the module as an object', function () {
       assert.typeOf(powersModule, 'Object');
     });
   });
-  describe('the module should have several attributes', function () {
+  describe('the module should have the following attributes', function () {
     it('should have a name', function () {
       expect(powersModule).to.have.property('name');
+    });
+    it('should build a battleMap object', function () {
+      expect(powersModule).to.have.property('battleMap');
+    });
+    it('should use the state file to determine possible attack options', function () {
+      expect(powersModule).to.have.property('availableAttacks')
+    });
+    it('should have a list of potential cross shots', function () {
+      expect(powersModule).to.have.property('crossShotCells');
+    });
+    it('should have a list of potential diagonal cross shots', function () {
+      expect(powersModule).to.have.property('diagonalCrossShotCells');
+    });
+    it('should have a list of potential corner shots', function () {
+      expect(powersModule).to.have.property('cornerShotCells');
+    });
+    it('should have a list of potential double shots', function () {
+      expect(powersModule).to.have.property('doubleShotCells');
     });
   });
 
