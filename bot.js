@@ -47,13 +47,13 @@ function placeShips(workingDirectory) {
 
 function fireOrDoNothing(workingDirectory) {
     var stateFile = require(workingDirectory + '/' + stateFileName);
-    var fire = 1;
     var target = require('./selectFiringMethod.js')(stateFile);
 
     var xCoordinate = target.X;
     var yCoordinate = target.Y;
+    var weapon = target.Weapon;
 
-    var payload = fire + "," + xCoordinate + "," + yCoordinate + "\n";
+    var payload = weapon+ "," + xCoordinate + "," + yCoordinate + "\n";
 
     fs.writeFile(workingDirectory + '/' + commandFileName, payload, function(err) {
         if(err) {

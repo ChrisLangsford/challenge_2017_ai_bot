@@ -25,16 +25,7 @@ var cell = {};
     if (grid[i].Missed) {
       grid[i].Probability = -1;
     }
-
-    // if (grid[i].X == 2 && grid[i].Y == 1) {
-    //   console.log("i: "+ JSON.stringify(grid[i]));
-    //   console.log("+1: "+ JSON.stringify(grid[i+1]));
-    //   console.log("-1: "+ JSON.stringify(grid[i-1]));
-    //   console.log("+dim: "+ JSON.stringify(grid[i+dim]));
-    //   console.log("-dim: "+ JSON.stringify(grid[i-dim]));
-    // }
   }
-console.log(grid);
 
 return grid;
 };
