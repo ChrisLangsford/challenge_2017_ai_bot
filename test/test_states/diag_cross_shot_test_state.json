@@ -847,7 +847,7 @@
             },
             {
                 "Damaged": false,
-                "Missed": false,
+                "Missed": true,
                 "X": 0,
                 "Y": 2
             },
