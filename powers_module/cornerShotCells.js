@@ -15,7 +15,7 @@ module.exports = function crossShotCellsMaker(state) {
               }
               counter++;
             });
-            if (possibleCornerShot) {
+            if (possibleCornerShot && !((cell.X % 2 == 0 && cell.Y % 2 ==0) || (cell.X % 2 == 1 && cell.Y % 2 == 1))) {
               cornerShotCells.push(cell);
             }
           }
