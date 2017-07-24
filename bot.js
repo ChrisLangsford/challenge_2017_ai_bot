@@ -20,21 +20,44 @@ function initBot(args) {
     var phase = stateFile.Phase;
 
     if(phase == 1) {
-        placeShips(workingDirectory);
+        placeShips(workingDirectory, stateFile);
     }
     if(phase == 2) {
         fireOrDoNothing(workingDirectory);
     }
 }
 
-function placeShips(workingDirectory) {
+function placeShips(workingDirectory, state) {
     // Hardcoded ship placement
-    var payload =
-      "Carrier 1 0 North" + "\n" +
-      "Battleship 2 8 East" + "\n" +
-      "Cruiser 5 4 North" + "\n" +
-      "Submarine 7 1 North" + "\n" +
+    var payload = '';
+    var mapDimension = state.MapDimension || 10;
+    switch (mapDimension) {
+      case 7:
+      payload =
+      "Carrier 0 6 East" + "\n"+
+      "Battleship 4 0 North" + "\n"+
+      "Cruiser 6 2 North" + "\n"+
+      "Submarine 1 2 North" + "\n"+
+      "Destroyer 0 0 East" + "\n";
+        break;
+      case 10:
+      payload =
+        "Carrier 1 0 North" + "\n"+
+        "Battleship 2 8 East" + "\n"+
+        "Cruiser 5 4 North" + "\n"+
+        "Submarine 7 1 North" + "\n"+
+        "Destroyer 9 9 South" + "\n";
+        break;
+      case 14:
+      payload =
+      "Carrier 1 0 North" + "\n"+
+      "Battleship 2 8 East" + "\n"+
+      "Cruiser 5 4 North" + "\n"+
+      "Submarine 7 1 North" + "\n"+
       "Destroyer 9 9 South" + "\n";
+        break;
+    }
+
 
     fs.writeFile(workingDirectory + '/' + placeShipFileName, payload,
     function(err) {
