@@ -6,9 +6,8 @@ var chai = require('chai'),
     have = chai.have;
 
 var blankState = require('./test_states/blank_state.json');
-var battleMap = require('../mapReader.js')(blankState);
 var selectFiringMethod = require('../selectFiringMethod.js');
-var huntingShot = require('../huntingShot.js')(10);
+var huntingShot = require('../huntingShot.js')(blankState);
 
 describe('selectFiringMethod', () => {
   describe('should return target cell object', () => {
@@ -35,13 +34,15 @@ describe('huntingShot', () => {
 var destroyedShipState = require('./test_states/destroyed_ships_state.json');
 var energyLevelState = require('./test_states/energy_level_state.json');
 var getAttacks = require('../powers_module/findAvailableAttacks.js');
+
+
 describe('Powers', function () {
   describe('', function () {
     it('should only return powers for surviving ships', function () {
-      assert.equal(getAttacks(destroyedShipState).length, 3);
+      assert.equal(getAttacks(destroyedShipState).length, 4);
     });
     it('should only return powers requiring <= energy available', function () {
-      assert.equal(getAttacks(energyLevelState).length, 1);
+      assert.equal(getAttacks(energyLevelState).length, 2);
     });
   });
 });
@@ -54,12 +55,6 @@ describe('powers module', function () {
     });
   });
   describe('the module should have the following attributes', function () {
-    it('should have a name', function () {
-      expect(powersModule(blankState)).to.have.property('name');
-    });
-    // it('should build a battleMap object', function () {
-    //   expect(powersModule(blankState)).to.have.property('battleMap');
-    // });
     it('should use the state file to determine possible attack options', function () {
       expect(powersModule(blankState)).to.have.property('availableAttacks')
     });
@@ -77,11 +72,11 @@ describe('powers module', function () {
     });
   });
   describe('The cross shot should potential cross shot target cells', function () {
-    it('should return 64 protential targets for a blank 10x10 map', function () {
-      assert.equal(64, powersModule(blankState).crossShotCells.length);
+    it('should return 32 protential targets for a blank 10x10 map', function () {
+      assert.equal(32, powersModule(blankState).crossShotCells.length);
     });
-    it('should return 64 protential targets for a blank 10x10 map', function () {
-      assert.equal(64, powersModule(blankState).diagonalCrossShotCells.length);
+    it('should return 32 protential targets for a blank 10x10 map', function () {
+      assert.equal(32, powersModule(blankState).diagonalCrossShotCells.length);
     });
   });
   describe('The corner shot should be identical except the centre cell is touched', function () {
