@@ -86,3 +86,26 @@ describe('powers module', function () {
   });
 
 });
+
+var getShortestShipLength = require('../getShortestShipLength.js');
+var destroyerRemainingState = require('./test_states/ship_length_states/only_destroyer_remaining.json');
+var subRemainingState = require('./test_states/ship_length_states/only_sub_remaining.json');
+var battleshipRemainingState = require('./test_states/ship_length_states/only_battleship_remaining.json');
+var carrierRemainingState = require('./test_states/ship_length_states/only_carrier_remaining.json');
+
+describe('ShortestShip', function () {
+  describe('getShortestShipLength', function () {
+    it('should return 2 when the destroyer is the shortest ship left', function () {
+      assert.equal(getShortestShipLength(destroyerRemainingState),2);
+    });
+    it('should return 3 when the sub is the shortest ship left', function () {
+      assert.equal(getShortestShipLength(subRemainingState),3);
+    });
+    it('should return 4 when the cruiser his the shortest ship left', function () {
+      assert.equal(getShortestShipLength(battleshipRemainingState),4);
+    });
+    it('should return 5 when the carrier is the shortest ship left', function () {
+      assert.equal(getShortestShipLength(carrierRemainingState),5);
+    });
+  });
+});

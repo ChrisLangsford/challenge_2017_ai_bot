@@ -1,0 +1,26 @@
+{
+    "OpponentMap": {
+        "Ships": [
+            {
+                "Destroyed": true,
+                "ShipType": "Submarine"
+            },
+            {
+                "Destroyed": true,
+                "ShipType": "Destroyer"
+            },
+            {
+                "Destroyed": true,
+                "ShipType": "Battleship"
+            },
+            {
+                "Destroyed": false,
+                "ShipType": "Carrier"
+            },
+            {
+                "Destroyed": true,
+                "ShipType": "Cruiser"
+            }
+        ]
+    }
+}

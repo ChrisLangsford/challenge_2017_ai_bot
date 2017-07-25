@@ -20,9 +20,19 @@ module.exports = function mapReader(stateFile) {
         Y: stateFile.OpponentMap.Cells[i].Y,
         Damaged: stateFile.OpponentMap.Cells[i].Damaged,
         Missed: stateFile.OpponentMap.Cells[i].Missed,
-        Probability: 0
+        Probability: 0,
+        Checkered: assignParity(stateFile,stateFile.OpponentMap.Cells[i].X, stateFile.OpponentMap.Cells[i].Y)
     });
   };
+
+  function assignParity(state,x,y){
+    var shortestShip = require('./getShortestShipLength.js')(state);
+    if (((x+y)%shortestShip) == 0) {
+      return true;
+    }else {
+      return false;
+    }
+  }
 
   return battleMap;
 };
