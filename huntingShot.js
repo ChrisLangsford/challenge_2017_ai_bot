@@ -1,6 +1,7 @@
 module.exports = function huntingShot(state) {
   var availableAttacks = require('./powers_module/findAvailableAttacks.js')(state);
   var powersModule = require('./powers_module/powers_module.js')(state);
+  var battleMap = require('./mapReader.js')(state);
   var targetCell = {
     "X": 0,
     "Y": 0,
@@ -27,7 +28,7 @@ module.exports = function huntingShot(state) {
       do {
         targetCell.X = Math.floor(Math.random() * state.MapDimension);
         targetCell.Y = Math.floor(Math.random() * state.MapDimension);
-      } while (!((targetCell.X % 2 == 0 && targetCell.Y % 2 ==0) || (targetCell.X % 2 == 1 && targetCell.Y % 2 == 1)));
+      } while ((battleMap.get(targetCell.X, targetCell.Y).Checkered));
       targetCell.Weapon = 1;
     }
   });
