@@ -109,3 +109,22 @@ describe('ShortestShip', function () {
     });
   });
 });
+
+describe('Seeker Missile', function () {
+  describe('save state', function () {
+    it('should save the use of the seeker to a file in the bots directory', function () {
+      //assert.equal(1,1);
+    });
+    it('should create a seeker object containing all of the potential cells covered by the attack', function () {
+      assert.equal(1,0);
+    });
+    it('should append the seeker shot object to the contents of the seeker file', function () {
+      assert.equal(1,0);
+    });
+  });
+  describe('saved seeker shots should be compared to the current map', function () {
+    it('should reduce the number of potential shots based on previous seeker results', function () {
+      assert.equal(1,0);
+    });
+  });
+});
