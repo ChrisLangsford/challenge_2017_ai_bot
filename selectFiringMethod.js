@@ -1,5 +1,9 @@
 module.exports = function selectFiringMethod(state) {
-var targetCell;
+var targetCell = {
+  X: 0,
+  Y: 0,
+  Probability: 0
+};
 var battleMap = require('./mapReader.js')(state);
 //hunt or chase
 

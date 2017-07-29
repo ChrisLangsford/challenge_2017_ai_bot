@@ -9,7 +9,7 @@ module.exports = function crossShotCellsMaker(state) {
             battleMap.getNeighbours(cell.X, cell.Y).forEach((e)=>{
               var counter = 0;
               if (counter == 0 || counter == 2 || counter == 5 || counter == 7) {
-                if (e.Damaged ||e.Missed) {
+                if ((!e.Checkered) && (e.Damaged || e.Missed)) {
                   possibleCrossShot = false;
                 }
               }
