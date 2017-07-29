@@ -6,7 +6,8 @@ module.exports = function mapReader(stateFile) {
         "Y": 0,
         "Damaged": false,
         "Misssed": false,
-        "Probability": 0
+        "Probability": 0,
+        "Checkered": false
   };
 
   var battleMap = new grid_array(dim,dim,cell_template);
@@ -28,9 +29,9 @@ module.exports = function mapReader(stateFile) {
   function assignParity(state,x,y){
     var shortestShip = require('./getShortestShipLength.js')(state);
     if (((x+y)%shortestShip) == 0) {
-      return true;
-    }else {
       return false;
+    }else {
+      return true;
     }
   }
 

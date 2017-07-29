@@ -24,6 +24,6 @@ var lengths = [];
   }
   shortestLength = Math.min.apply(null, lengths);
   });
-  // TODO: make this work correctly
-  return 2;//shortestLength;
+  
+  return shortestLength;
 }

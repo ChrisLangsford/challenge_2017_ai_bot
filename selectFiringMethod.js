@@ -7,7 +7,7 @@ var targetCell = {
 var battleMap = require('./mapReader.js')(state);
 //hunt or chase
 
-targetCell = require('./chasingShot.js')(state);
+//targetCell = require('./chasingShot.js')(state);
 if (!(targetCell.Probability && targetCell.Probability > 0)) {
   do {
     targetCell = require('./huntingShot.js')(state);
