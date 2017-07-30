@@ -12,7 +12,7 @@ if (!(targetCell.Probability && targetCell.Probability > 0)) {
   do {
     targetCell = require('./huntingShot.js')(state);
     targetOnMap = battleMap.get(targetCell.X, targetCell.Y);
-  } while (!targetOnMap.Checkered && (targetOnMap.Damaged || targetOnMap.Missed));
+  } while (targetOnMap.Damaged || targetOnMap.Missed);
 };
 
 return targetCell;
