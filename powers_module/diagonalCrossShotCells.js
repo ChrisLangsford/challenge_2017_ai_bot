@@ -8,7 +8,7 @@ module.exports = function crossShotCellsMaker(state) {
             var possibleCrossShot = true;
             battleMap.getNeighbours(cell.X, cell.Y).forEach((e)=>{
               var counter = 0;
-              if (possibleCrossShot && (counter == 0 || counter == 2 || counter == 5 || counter == 7)) {
+              if (!possibleCrossShot || counter == 0 || counter == 2 || counter == 5 || counter == 7) {
                 if (e.Damaged || e.Missed) {
                   possibleCrossShot = false;
                 }

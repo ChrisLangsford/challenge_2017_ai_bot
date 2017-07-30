@@ -28,7 +28,7 @@ module.exports = function huntingShot(state) {
       do {
         targetCell.X = Math.floor(Math.random() * state.MapDimension);
         targetCell.Y = Math.floor(Math.random() * state.MapDimension);
-      } while ((battleMap.get(targetCell.X, targetCell.Y).Checkered));
+      } while (!(battleMap.get(targetCell.X, targetCell.Y).Checkered));
       targetCell.Weapon = 1;
     }
   });
