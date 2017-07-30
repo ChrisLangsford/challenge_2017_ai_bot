@@ -15,7 +15,7 @@ function initBot(args) {
     key = args[0];
     workingDirectory = args[1];
     //init empty seeker missile logging file
-    console.log(require('./createSeekerFile.js')());
+    //console.log(require('./createSeekerFile.js')());
 
     // Read the current state and choose an action
     var stateFile = require(workingDirectory + '/' + stateFileName);
