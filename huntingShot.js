@@ -9,6 +9,11 @@ module.exports = function huntingShot(state) {
   };
 
   availableAttacks.forEach((weapon)=>{
+    if (weapon.WeaponType == "SeekerMissile" && powersModule.seekerShotCells.length > 0) {
+      targetCell.X = powersModule.seekerShotCells[0].X;
+      targetCell.Y = powersModule.seekerShotCells[0].Y;
+      targetCell.Weapon = 7;
+    }
     if (weapon.WeaponType == "DiagonalCrossShot" && powersModule.diagonalCrossShotCells.length > 0) {
       targetCell.X = powersModule.diagonalCrossShotCells[0].X;
       targetCell.Y = powersModule.diagonalCrossShotCells[0].Y;
