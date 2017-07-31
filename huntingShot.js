@@ -9,7 +9,7 @@ module.exports = function huntingShot(state) {
   };
 
   availableAttacks.forEach((weapon)=>{
-    if (weapon.WeaponType == "SeekerMissile" && powersModule.seekerShotCells.length > 0) {
+    if (weapon.WeaponType == "SeekerMissle" && powersModule.seekerShotCells.length > 0) {
       targetCell.X = powersModule.seekerShotCells[0].X;
       targetCell.Y = powersModule.seekerShotCells[0].Y;
       targetCell.Weapon = 7;

@@ -6,8 +6,6 @@ module.exports = function seekerShotCellsMaker(state) {
 
 seekerShotCells.push(battleMap.get(x,y));
 
-
-
     function getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
