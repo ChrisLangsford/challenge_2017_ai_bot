@@ -5,7 +5,8 @@ module.exports = function makePowersModule(stateFile) {
     crossShotCells: require('./crossShotCells.js')(stateFile),
     diagonalCrossShotCells: require('./diagonalCrossShotCells.js')(stateFile),
     cornerShotCells: require('./cornerShotCells.js')(stateFile),
-    doubleShotCells: require('./doubleShotCells.js')(stateFile)
+    doubleShotCells: require('./doubleShotCells.js')(stateFile),
+    seekerShotCells: require('./seekerShotCells.js')(stateFile)
   }
   return powersModule;
 }
