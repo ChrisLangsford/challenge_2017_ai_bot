@@ -14,10 +14,6 @@ initBot(process.argv.slice(2));
 function initBot(args) {
     key = args[0];
     workingDirectory = args[1];
-    //init empty seeker missile logging file
-    // if (stateFile.Round==0) {
-    //   console.log(require('./createSeekerFile.js')());
-    // }
 
     // Read the current state and choose an action
     var stateFile = require(workingDirectory + '/' + stateFileName);
@@ -75,6 +71,17 @@ function placeShips(workingDirectory, state) {
 function fireOrDoNothing(workingDirectory) {
     var stateFile = require(workingDirectory + '/' + stateFileName);
     var target = require('./selectFiringMethod.js')(stateFile);
+
+    //init empty seeker missile logging file
+    if (stateFile.Round == 0) {
+      console.log(require('./createSeekerFile.js')({"SeekerShotTaken":[]}));
+    }
+    if (weapon == 7) {
+      var seekerState = JSON.parse(fs.readFileSync('./seekerShots.json', 'utf8'));
+      seekerState.SeekerShotTaken.push(target);
+      console.log(JSON.stringify(seekerState));
+      require('../createSeekerFile.js')(seekerState);
+    }
 
     var xCoordinate = target.X;
     var yCoordinate = target.Y;

@@ -1,7 +1,6 @@
-module.exports = function () {
+module.exports = function (content) {
 var fs = require('fs');
 
-var myData = {};
 var outputFilename = "seekerShots.json";
 
 if (fs.existsSync(outputFilename)) {
@@ -15,7 +14,7 @@ if (fs.existsSync(outputFilename)) {
     console.log("Seeker file does not exist!");
 }
 
-var dataToWrite = JSON.stringify(myData);//,null,4);
+var dataToWrite = JSON.stringify(content);//,null,4);
 try {
     fs.writeFileSync(outputFilename, dataToWrite);
     console.log("New Seeker file saved to " + outputFilename);
