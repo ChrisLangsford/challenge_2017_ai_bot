@@ -81,6 +81,7 @@ function fireOrDoNothing(workingDirectory) {
       seekerState.SeekerShotTaken.push(target);
       console.log(JSON.stringify(seekerState));
       require('../createSeekerFile.js')(seekerState);
+      console.log("Seeker shot saved to file!");
     }
 
     var xCoordinate = target.X;
