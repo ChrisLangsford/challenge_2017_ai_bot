@@ -46,21 +46,25 @@ module.exports = function mapReader(stateFile) {
     seekerState.SeekerShotsTaken.forEach((previousShot)=>{
       var currentCell = battleMap.get(previousShot.X, previousShot.Y);
       if (currentCell.Missed) {
-        let cellNeighbors = battleMap
-                            .getNeighbours(previousShot.X, previousShot.Y)
+        let counter = 0;
+        let notNeighbours = [0,1,3,4,5,9,14,18,19,20,22,23];
+        let cellNeighbours = battleMap
+                            .getNeighbours(previousShot.X, previousShot.Y, 2)
                             .forEach((neighbour)=>{
-                            battleMap.set(
-                              neighbour.X,
-                              neighbour.Y,
-                              {
-                                X: neighbour.X,
-                                Y: neighbour.Y,
-                                Damaged: false,
-                                Missed: true,
-                                Checkered: neighbour.Checkered
-                              });
+                              if (!(notNeighbours.includes(counter))) {
+                                battleMap.set(
+                                  neighbour.X,
+                                  neighbour.Y,
+                                  {
+                                    X: neighbour.X,
+                                    Y: neighbour.Y,
+                                    Damaged: false,
+                                    Missed: true,
+                                    Checkered: neighbour.Checkered
+                                  });
+                              }
+            counter++;
         });
-
       }
     });
   }
