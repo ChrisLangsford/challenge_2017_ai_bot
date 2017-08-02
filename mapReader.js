@@ -46,9 +46,9 @@ module.exports = function mapReader(stateFile) {
     seekerState.SeekerShotsTaken.forEach((previousShot)=>{
       var currentCell = battleMap.get(previousShot.X, previousShot.Y);
       if (currentCell.Missed) {
-        let counter = 0;
-        let notNeighbours = [0,1,3,4,5,9,14,18,19,20,22,23];
-        let cellNeighbours = battleMap
+        var counter = 0;
+        var notNeighbours = [0,1,3,4,5,9,14,18,19,20,22,23];
+        var cellNeighbours = battleMap
                             .getNeighbours(previousShot.X, previousShot.Y, 2)
                             .forEach((neighbour)=>{
                               if (!(notNeighbours.includes(counter))) {
