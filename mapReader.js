@@ -42,7 +42,6 @@ module.exports = function mapReader(stateFile) {
     var fs = require('fs');
     //read seeker shot file
     var seekerState = JSON.parse(fs.readFileSync('./seekerShots.json', 'utf8'));
-    console.log("loop through previous seeker states");
     seekerState.SeekerShotsTaken.forEach((previousShot)=>{
       var currentCell = battleMap.get(previousShot.X, previousShot.Y);
       if (currentCell.Missed) {
